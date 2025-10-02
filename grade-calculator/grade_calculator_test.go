@@ -37,13 +37,13 @@ func TestGetGradeB(t *testing.T) {
 }
 
 func TestGetGradeF(t *testing.T) {
-	expected_value := "A"
+	expected_value := "F"
 
 	gradeCalculator := NewGradeCalculator()
 
-	gradeCalculator.AddGrade("open source assignment", 100, Assignment)
-	gradeCalculator.AddGrade("exam 1", 95, Exam)
-	gradeCalculator.AddGrade("essay on ai ethics", 91, Essay)
+	gradeCalculator.AddGrade("open source assignment", 50, Assignment)
+	gradeCalculator.AddGrade("exam 1", 50, Exam)
+	gradeCalculator.AddGrade("essay on ai ethics", 50, Essay)
 
 	actual_value := gradeCalculator.GetFinalGrade()
 
@@ -66,7 +66,7 @@ func TestGetGradeNegative(t *testing.T) {
 	if expected_value != actual_value { // compares to a string
 		t.Errorf("Expected GetGrade to return '%s'; got '%s' instead", expected_value, actual_value)
 	}
-} // edge case for negative values since main code doesn't exclude
+} // edge case for negative values since main code doesn't exclude out of bounds values
 
 func TestGetGradeAPlus(t *testing.T) {
 	expected_value := "A"
